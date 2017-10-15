@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>计算器</title>
+		<meta charset="utf-8"/>
+		<style type="text/css">
+			.tab_style{
+				width:400px;
+				height:500px;
+				margin:0px auto;
+			}
+			.res{
+				text-align:right;
+				font-size: 30px;
+			}
+			.butt{
+				width:70px;
+				height:70px;
+				font-size:20px;
+			}
+		</style>
+		<script type="text/javascript">
+			var num=0;
+			var str="";
+			//实现按按钮读取数据显示到结果框中
+			function showData(num){
+				str+=document.getElementById(num).value;
+				document.getElementById("result").innerHTML=str;
+			}
+			//实现计算、继续计算并显示在结果框中
+			function calculate(){
+				document.getElementById("result").innerHTML = '';
+				var resultNum=eval(str);
+				resultNum += '';
+				if(resultNum.indexOf(".")>0)
+				{
+					var a=resultNum.indexOf(".");
+					resultNum=resultNum+'00';
+					resultNum=resultNum.substr(0,a+3);
+				}
+				document.getElementById("result").innerHTML = resultNum;
+				str=resultNum;
+			}
+			//实现数据清空
+			function clearData(){
+				document.getElementById("result").innerHTML = 0;
+				str="";
+			}
+		</script>
+	</head>
+	<body>
+		<table class="tab_style" border="1" cellspacing="2" >
+			<tr>
+				<th colspan="3" class="res"  id="result">0</th>
+				<th>
+					<input type="button" value="c"  class="butt" onclick="clearData()">
+				</th>
+			</tr>
+			<tr>
+				<th><input type="button" id="1" value="1" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="2" value="2" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="3" value="3" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="+" value="+" class="butt" onclick="showData(this.id)"></th>
+			</tr>
+			<tr>
+				<th><input type="button" id="4" value="4" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="5" value="5" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="6" value="6" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="-" value="-" class="butt" onclick="showData(this.id)"></th>
+			</tr>
+			<tr>
+				<th><input type="button" id="7" value="7" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="8" value="8" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="9" value="9" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="*" value="*" class="butt" onclick="showData(this.id)"></th>
+			</tr>
+			<tr>
+				<th><input type="button" id="0" value="0" class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="." value="." class="butt" onclick="showData(this.id)"></th>
+				<th><input type="button" id="=" value="=" class="butt" onclick="calculate()"></th>
+				<th><input type="button" id="/" value="/" class="butt" onclick="showData(this.id)"></th>
+			</tr>
+		</table>
+	</body>
+</html>
