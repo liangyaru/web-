@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>表格</title>
+	<meta charset="utf-8" />
+	<style type="text/css">
+		*{
+			font-size: 36px;
+		}
+		tr{
+			height: 30px;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ad=document.getElementById('add');
+			var de=document.getElementById('delete');
+			var ta=document.getElementsByTagName('table');
+			var trr=document.getElementsByTagName('tr');
+			ad.onclick=function(){
+				var tr1=document.createElement('tr');
+				ta[0].appendChild(tr1);
+				for(var i=0;i<12;i++)
+				{
+					var td=document.createElement('td');
+					tr1.appendChild(td);
+				}
+				for(var i=0;i<trr.length;i++)
+				{
+					trr[i].onmouseover=function(){
+						this.style.backgroundColor="red";
+					}
+					trr[i].onmouseout=function(){
+						this.style.backgroundColor="white";		
+					}
+				}
+			}
+			de.onclick=function(){
+				var trde=ta[0].lastChild;
+				ta[0].removeChild(trde);
+			}
+			for(var i=0;i<trr.length;i++)
+			{
+				trr[i].onmouseover=function(){
+					this.style.backgroundColor="red";
+				}
+				trr[i].onmouseout=function(){
+					this.style.backgroundColor="white";		
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<table width="1000px" border="1">
+		<tr height="30px">
+			<td></td><td></td><td></td><td></td><td></td><td></td>
+			<td></td><td></td><td></td><td></td><td></td><td></td>
+		</tr>
+	</table>
+	<input type="button" name="add" id="add" value="添加一行" style="margin-left:840px;"/>
+	<input type="button" name="delete" id="delete" value="删除一行" style="margin-left:840px;"/>
+</body>
+</html>
