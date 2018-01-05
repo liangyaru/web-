@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>课程设计大作业</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		body{
+			color:black;
+			font-size: 16px;
+			font-weight:bold;
+			font-family: '宋体';
+		}
+		div{
+			margin:0px auto;
+			padding:0px;
+			border:0px;
+		}
+		img{
+			border:0px;
+		}
+		ul{
+			margin:0px;
+			padding:0px;
+		}
+		li{
+			list-style-type: none;
+		}
+		a{
+			text-decoration:none;
+		}
+		.loading{
+			border:1px solid #ccc;
+			background:#ccc;
+			height:10px;
+			position:fixed;
+			top:95%;
+			left:78%;
+			z-index:99999;
+		}
+		.left{
+			width:175px;
+			height:690px;
+			background-image: url(images/bg1.jpg);
+			float:left;
+		}
+		.pic{
+			width:100px;
+			height:75px;
+			display:block;
+			position:relative;
+			top:15px;
+			left:20px;
+		}
+		.right{
+			width:1072px;
+			float:left;
+		}
+		.header{
+			height:110px;
+			background-image: url(images/bg.jpg);
+		}
+		.header_one{
+			width:700px;
+			height:110px;
+			float:left;
+			position:relative;
+			left:40px;
+		}
+		#cai{
+			margin-top:40px;
+			margin-left:50px;
+			line-height:27px;
+		}
+		#cai li{
+			float:left;
+			width:90px;
+			height:30px;
+			text-align: center;
+		}
+		#cai a:link{
+			display: block;
+			color:#ccc;
+			width:90px;
+			height:30px;
+			background-image:url(images/bg.jpg);
+		}
+		#cai a:visited{
+			display: block;
+			color:#ccc;
+			width:90px;
+			height:30px;
+		}	
+		#cai a:hover{
+			color:#0066CC;
+		}	
+		#cai li ul li a:hover{
+			color:#0066CC;
+		}
+		#cai li ul{
+			display: none;
+			position: relative;
+			z-index: 99999;
+		}
+		#cai li.subMenuShow ul{
+			display: block;
+
+		}
+		.header_two{
+			width:250px;
+			float:left;
+			position: relative;
+			left:100px;
+		}
+		.ds{
+			color:white;
+			position: relative;
+			left:40px;
+			top:20px;
+		}
+		.denglu:link{
+			color:white;
+		}
+		.denglu:visited{
+			color:white;
+		}
+		.denglu:hover{
+			color:#0066CC;
+		}
+		.search0{
+			position: relative;
+			top:40px;
+		}
+		.content{
+			background-image: url(images/bg2.jpg);
+			height:580px;
+		}
+		.ppt{
+			z-index: 10px;
+		}
+		.pp{
+			width:800px;
+			position: relative;
+			left:10px;
+			top:5px;
+		}
+		.content_one{
+			width:820px;
+			float:left;
+			overflow: hidden;
+			position: relative;
+		}
+		.content_two{
+			width:240px;
+			height:287px;
+			float:left;
+			background-image: url(images/bg1.jpg);
+			position: relative;
+			top:5px;
+		}
+		h2{
+			margin:0px;
+			text-align: center;
+			color:#ccc;
+		}
+		#remen li{
+			height:30px;
+			padding-top:10px;
+		}
+		#remen a:link,a:visited{
+			color:#ccc;
+		}
+		#remen a:hover{
+			color:#0066CC;
+		}
+		.content_three{
+			width:343px;
+			height:259px;
+			background-image: url(images/bg1.jpg);
+			float:left;
+			margin-top:10px;
+			margin-left:10px;
+		}
+		.content_three img{
+			width:160px;
+			padding-top:20px;
+			padding-left:5px;
+		}
+		.content_three li{
+			height:30px;
+			padding-top:10px;
+		}
+		.content_three a:hover{
+			color:#0066cc;
+		}
+		.foot{
+			background-image: url(images/bg1.jpg);
+			height:50px;
+			color:#ccc;
+			font-size:12px;
+			text-align: center;
+			float:left;
+			width:1247px;
+		}
+		.foot span{
+			display: block;
+			position: relative;
+			top:10px;
+		}
+		.lcai{
+			padding-left:40px;
+			padding-top:20px;
+		}
+		.lcai li{
+			line-height: 50px;
+			border-bottom:1px solid #0066cc;
+			text-align: center;
+			width:100px;
+		}
+		.lcai a:link,a:visited{
+			display: block;
+			color:#ccc;
+		}
+		.ppt img{
+			vertical-align: top;
+		}
+		.ppt li{
+			float:left;
+		}
+		.count{
+			position: absolute;
+			right:10px;
+			bottom:10px;
+		}
+		.count span{
+			display: inline-block;
+			width:16px;
+			height:16px;
+			background-image:url(images/bg.jpg);
+			text-align: center;
+			line-height: 16px;
+			cursor:pointer;
+			color:#ccc;  
+		}
+		.pb{
+			color:#0066cc;
+		}
+		.pb1{
+
+		}
+		#popupcontent{
+			position:absolute;
+			display:none;
+			width:300px;
+			height:200px;
+			border:1px solid #ccc;
+			padding:5px;
+			top:200px;
+			left:500px;
+			z-index: 99999;
+			background-image:url(images/bg2.jpg);
+			text-align:center;
+			color:#0066cc;
+		}
+		#guanbi{
+			width:14px;
+			height:14px;
+			background-color:#ccc;
+			text-align: center;
+			position:absolute;
+			font-size: 12px;
+			top:2%;
+			right:2%;
+		}
+		#guanbi a:link,a:visited,a:hover{
+			color:#0066cc;
+		}
+	</style>
+	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			var a1=0;
+			a1=setInterval(onchange,1000);
+			var liNodes = document.getElementsByTagName("li");
+			for(var i=0;i<liNodes.length;i++)
+			{
+				liNodes[i].onmouseover = function(){
+					this.className = "subMenuShow";
+				}
+				liNodes[i].onmouseout=function(){
+					this.className="";
+				}
+			}
+			var countspan=document.getElementById('countt').children;
+			var im=document.getElementById("ppp");
+			var a;
+			var a1;
+			var temp;
+			var temp1=0;
+			function change()
+			{
+				if(temp<6)
+				{
+					im.src="images/pp"+temp+".jpg";
+					for(var m=0;m<6;m++)
+					{
+						countspan[m].style.color="#ccc";
+					}
+					countspan[temp].style.color="#0066cc";
+					temp++;
+				}
+				else{
+					temp=0;
+				}
+			}
+			function onchange()
+			{
+				if(temp1<6)
+				{
+					im.src="images/pp"+temp1+".jpg";
+					for(var m=0;m<6;m++)
+					{
+						countspan[m].style.color="#ccc";
+					}
+					countspan[temp1].style.color="#0066cc";
+					temp1++;
+				}
+				else{
+					temp1=0;
+				}
+			}
+			for(var j=0;j<6;j++)
+			{
+				countspan[j].onmouseover=function(){
+					clearInterval(a1); 
+					clearInterval(a);	
+					im.src="images/pp"+(this.innerHTML-1)+".jpg";
+					for(var p=0;p<6;p++)
+					{
+						countspan[p].style.color="#ccc";
+					}
+					this.style.color="#0066cc";
+				}
+				countspan[j].onmouseout=function(){
+					temp=this.innerHTML-1;
+					a=setInterval(change,1000);
+				}
+				
+			}
+			var popUp = document.getElementById("popupcontent"); 
+			var popimg=document.getElementById("popdiv").children;
+			for(var v=0;v<4;v++)
+			{
+				popimg[v].onclick=function(){
+					popUp.style.display="block";
+				}
+			}
+			var popbu=document.getElementById("guanbi");
+			popbu.onclick=function(){
+				popUp.style.display="none";
+			}
+		}
+	</script>
+</head>
+<body>
+	<!--弹出层-->
+	<div id="popupcontent">"这是我的弹出层"
+		<div id="guanbi"><a href="#">×</a></div>
+	</div>
+	<!--进度条-->
+	<div class="loading"></div>
+	<!--左侧-->
+	<div class="left">
+		<img src="images/m.jpg" class="pic">
+		<ul class="lcai">
+			<li><a href="#">生活</a></li>
+			<li><a href="#">教育</a></li>
+			<li><a href="#">健康<a></li>
+			<li><a href="#">旅游</a></li>
+			<li><a href="#">拍客</a></li>
+			<li><a href="#">科技</a></li>
+			<li><a href="#">汽车</a></li>
+			<li><a href="#">财经</a></li>
+			<li><a href="#">军事</a></li>
+			<li><a href="#">工艺</a></li>
+			<li><a href="#">时尚</a></li>
+		</ul>
+	</div>
+	<script type="text/javascript"> 
+ 		$('.loading').animate({'width':'66px'},50); 
+	</script> 
+	<!--右侧-->
+	<div class="right">
+		<!--首部-->
+		<div class="header">
+			<div class="header_one">
+				<ul id="cai">
+					<li><a href="#">首页</a></li>
+					<li><a href="#">电视剧</a>
+						<ul>
+							<li><a href="#">热播精选</a></li>
+							<li><a href="#">新鲜好剧</a></li>
+							<li><a href="#">热剧</a></li>
+						</ul>
+					</li>
+					<li><a href="#">电影</a>
+						<ul>
+							<li><a href="#">首播影院</a></li>
+							<li><a href="#">影院热映</a></li>
+							<li><a href="#">强势接档</a></li>
+						</ul>
+					</li>
+					<li><a href="#">动漫</a>
+						<ul>
+							<li><a href="#">热播推荐</a></li>
+							<li><a href="#">新番周更表</a></li>
+							<li><a href="#">动漫排行榜</a></li>
+						</ul>
+					</li>
+					<li><a href="#" id="spe">综艺</a>
+						<ul>
+							<li><a href="#">热门栏目</a></li>
+							<li><a href="#">为你推荐</a></li>
+							<li><a href="#">综艺节目单</a></li>
+						</ul>
+					</li>
+					<li><a href="#">纪录片</a>
+					<ul>
+						<li><a href="#">顶级首播</a></li>
+						<li><a href="#">历史风云</a></li>
+						<li><a href="#">铁血军事</a></li>
+					</ul>
+					</li>
+					<li><a href="#">娱乐</a>
+						<ul>
+							<li><a href="#">娱乐热点</a></li>
+							<li><a href="#">所谓娱乐</a></li>
+							<li><a href="#">封面人物</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="header_two">
+				<div class="ds"><a href="#" class="denglu">登录</a>&nbsp;|&nbsp;<a href="#" class="denglu">注册</a></div>
+				<form>
+					<input type="text" name="search" placeholder="搜索" class="search0">
+					<input type="button" value="搜索" class="search0">
+				</form>
+			</div>
+		</div>
+		<script type="text/javascript"> 
+ 			$('.loading').animate({'width':'110px'},50); 
+ 		</script>
+		<!--内容-->
+		<div class="content">
+			<div class="content_one">
+				<ul class="ppt">
+					<li><a href="#"><img src="images/pp0.jpg" class="pp" id="ppp"></a></li>
+				</ul>
+				
+				<div class="count" id="countt">
+					<span>1</span>
+					<span>2</span>
+					<span>3</span>
+					<span>4</span>
+					<span>5</span>
+					<span>6</span>
+				</div>
+			</div>
+			<div class="content_two">
+				<h2>热门节目</h2>
+				<ul id="remen">
+					<li><a href="#">2018跨年演唱会</a></li>
+					<li><a href="#">吐槽大会</a></li>
+					<li><a href="#">战狼二</a></li>
+					<li><a href="#">羞羞的铁拳</a></li>
+					<li><a href="#">神奇女侠</a></li>
+					<li><a href="#">小美好</a></li>
+				</ul>
+			</div>
+			<div class="content_three" id="popdiv">
+				<a href="#"><img src="images/li1.jpg"></a>
+				<a href="#"><img src="images/li2.jpg"></a>
+				<a href="#"><img src="images/li3.jpg"></a>
+				<a href="#"><img src="images/li4.jpg"></a>
+			</div>
+			<div class="content_three">
+				<h2>热点新闻</h2>
+				<ul>
+					<li><a href="#">风起长林：血战沙场 续写传奇</a></li>
+					<li><a href="#">梦想的声音第2季</a></li>
+					<li><a href="#">新年伊始，要开挂不要丧</a></li>
+					<li><a href="#">年度美剧魔性超燃混剪</a></li>
+					<li><a href="#">九州大学风云</a></li>
+				</ul>
+			</div>
+			<div class="content_three">
+				<h2>风云榜</h2>
+				<ul>
+					<li><a href="#">琅琊榜之风起长林</a></li>
+					<li><a href="#">猪猪侠之超星萌宠 第4季</a></li>
+					<li><a href="#">我的青春遇见你【会员先看】</a></li>
+					<li><a href="#">生逢灿烂的日子</a></li>
+					<li><a href="#">熊出没之探险日记</a></li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript"> 
+ 			$('.loading').animate({'width':'160px'},50);  
+		</script> 
+	</div>		
+	<!--脚部-->
+	<div class="foot">
+		<span>
+		姓名：梁雅茹&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		学号：2016011621&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		电话：15226538922<br/>
+		邮箱：m15226538922@163.com&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址：河北师范大学</span>
+	</div>
+	<script type="text/javascript"> 
+ 		$('.loading').animate({'width':'200px'},50);
+ 		$(document).ready(function(){ 
+ 			$('.loading').fadeOut();  
+		}); 
+	</script> 
+</body>
+</html>
