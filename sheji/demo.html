@@ -38,7 +38,7 @@
 			z-index:99999;
 		}
 		.left{
-			width:175px;
+			width:174px;
 			height:690px;
 			background-image: url(images/bg1.jpg);
 			float:left;
@@ -189,6 +189,9 @@
 			height:30px;
 			padding-top:10px;
 		}
+		.content_three a:link,a:visited{
+			color:#ccc;
+		}
 		.content_three a:hover{
 			color:#0066cc;
 		}
@@ -219,6 +222,9 @@
 		.lcai a:link,a:visited{
 			display: block;
 			color:#ccc;
+		}
+		.lcai a:hover{
+			color:#0066cc;
 		}
 		.ppt img{
 			vertical-align: top;
@@ -261,7 +267,7 @@
 			text-align:center;
 			color:#0066cc;
 		}
-		#guanbi{
+		.guan{
 			width:14px;
 			height:14px;
 			background-color:#ccc;
@@ -270,9 +276,10 @@
 			font-size: 12px;
 			top:2%;
 			right:2%;
-		}
-		#guanbi a:link,a:visited,a:hover{
 			color:#0066cc;
+		}
+		.guan a{
+			color:black;
 		}
 	</style>
 	<script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -280,7 +287,7 @@
 		window.onload=function(){
 			var a1=0;
 			a1=setInterval(onchange,1000);
-			var liNodes = document.getElementsByTagName("li");
+			var liNodes = document.getElementById("cai").children;
 			for(var i=0;i<liNodes.length;i++)
 			{
 				liNodes[i].onmouseover = function(){
@@ -364,7 +371,7 @@
 <body>
 	<!--弹出层-->
 	<div id="popupcontent">"这是我的弹出层"
-		<div id="guanbi"><a href="#">×</a></div>
+		<div class="guan" id="guanbi"><a href="#">×</a></div>
 	</div>
 	<!--进度条-->
 	<div class="loading"></div>
